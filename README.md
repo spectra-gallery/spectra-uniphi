@@ -1,6 +1,9 @@
 # spectra-uniphi
 
 
+Spectra Uniphi acts as a meta repository tying together multiple submodules. The project is split into several components which live in their own repositories. After cloning this repository, run the command below to fetch the actual code for each submodule:
+
+
 ## Documentation
 - [Interactive Map](docs/interactive-map.html)
 
@@ -25,14 +28,39 @@ These submodules come from their respective GitHub repositories and are not incl
 
 After cloning this repository run the following command to download all required code:
 
+
 ```bash
 git submodule update --init --recursive
 ```
+
+
+## Project structure
+
+- `afrhone/template` – template material from the Afrhone organization
+- `arquolab/delta` – Delta models from Arquolab
+- `exosystem/exosys-folg` – Exosystem definitions
+- `spectra/afrhone` – Afrhone tooling for Spectra
+- `spectra/graph` – social graph implementation
+- `spectra/graph-api` – API layer for the graph
+- `spectra/ideotek` – smart-contract infrastructure
+- `spectra/infra` – infrastructure definitions and scripts
+
+Each of the above paths is a Git submodule pointing to an external repository. Cloning this repository without initializing submodules results in these directories appearing empty. Running the command shown earlier populates them with their actual content.
+
+## Intended architecture
+
+The broader architecture centers around two services:
+
+- **spectra-playground-server** – backend service used for experimentation and APIs.
+- **spectra-frontend** – web front end communicating with the playground server.
+
+Other submodules provide library code and infrastructure used by these two applications. Javascript is the primary language for the frontend and some server tooling.
 
 This will pull down each external project into its directory so that the entire tree builds correctly.
 
 ## Intended architecture
 
 The Uniphi Lab stack combines several services.  A `spectra-playground-server` provides backend capabilities while a `spectra-frontend` offers a web interface.  Supporting projects such as `spectra-infra` and the social graph repositories provide the foundation.  Together they form the environment visualized in the interactive map.
+
 
 
