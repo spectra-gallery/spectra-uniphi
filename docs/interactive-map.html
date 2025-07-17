@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Repository Map</title>
+<style>
+ body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+ #graph { width: 100%; height: 80vh; }
+ footer { text-align: center; padding: 1em; background: #f0f0f0; }
+ svg text { font-size: 12px; }
+</style>
+</head>
+<body>
+<h1>spectra-uniphi Repository Map</h1>
+<div id="graph"></div>
+<footer>Javascript tastes sweet. Uniphilab</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>
+// Fetch .gitmodules and build nodes
+fetch('../.gitmodules')
+  .then(resp => resp.text())
+  .then(text => {
+    const lines = text.split(/\n/);
+    const nodes = [{id: 'spectra-uniphi', url: ''}];
+    const links = [];
+    let current = null;
+    lines.forEach(l => {
+      if(l.startsWith('[submodule')) {
+        current = {id: '', url: ''};
+      } else if(l.includes('path =')) {
+        current.id = l.split('=')[1].trim();
+      } else if(l.includes('url =')) {
+        current.url = l.split('=')[1].trim();
+        nodes.push(current);
+        links.push({source: 'spectra-uniphi', target: current.id});
+      }
+    });
+    renderGraph(nodes, links);
+  });
+
+function renderGraph(nodes, links) {
+  const width = document.getElementById('graph').clientWidth;
+  const height = document.getElementById('graph').clientHeight;
+  const svg = d3.select('#graph').append('svg')
+    .attr('width', width)
+    .attr('height', height);
+  const simulation = d3.forceSimulation(nodes)
+    .force('link', d3.forceLink(links).id(d => d.id).distance(100))
+    .force('charge', d3.forceManyBody().strength(-300))
+    .force('center', d3.forceCenter(width / 2, height / 2));
+  const link = svg.append('g')
+    .attr('stroke', '#aaa')
+    .selectAll('line')
+    .data(links)
+    .enter().append('line');
+  const node = svg.append('g')
+    .selectAll('circle')
+    .data(nodes)
+    .enter().append('circle')
+    .attr('r', 20)
+    .attr('fill', '#69b3a2')
+    .call(drag(simulation));
+  const label = svg.append('g')
+    .selectAll('text')
+    .data(nodes)
+    .enter().append('text')
+    .attr('dx', 25)
+    .attr('dy', '.35em')
+    .text(d => d.id);
+  node.append('title').text(d => d.url);
+  simulation.on('tick', () => {
+    link.attr('x1', d => d.source.x)
+        .attr('y1', d => d.source.y)
+        .attr('x2', d => d.target.x)
+        .attr('y2', d => d.target.y);
+    node.attr('cx', d => d.x)
+        .attr('cy', d => d.y);
+    label.attr('x', d => d.x)
+         .attr('y', d => d.y);
+  });
+}
+
+function drag(simulation) {
+  function dragstarted(event) {
+    if (!event.active) simulation.alphaTarget(0.3).restart();
+    event.subject.fx = event.subject.x;
+    event.subject.fy = event.subject.y;
+  }
+  function dragged(event) {
+    event.subject.fx = event.x;
+    event.subject.fy = event.y;
+  }
+  function dragended(event) {
+    if (!event.active) simulation.alphaTarget(0);
+    event.subject.fx = null;
+    event.subject.fy = null;
+  }
+  return d3.drag()
+    .on('start', dragstarted)
+    .on('drag', dragged)
+    .on('end', dragended);
+}
+</script>
+</body>
+</html>
