@@ -36,12 +36,13 @@ These submodules come from their respective GitHub repositories and are not incl
 
 ## Fetching submodules
 
-After cloning this repository run the following command to download all required code:
-
+After cloning this repository run the setup script to download all required code:
 
 ```bash
-git submodule update --init --recursive
+./setup.sh
 ```
+
+The script simply executes `git submodule update --init --recursive` to populate each directory.
 
 
 ## Project structure
@@ -72,5 +73,18 @@ This will pull down each external project into its directory so that the entire 
 
 The Uniphi Lab stack combines several services.  A `spectra-playground-server` provides backend capabilities while a `spectra-frontend` offers a web interface.  Supporting projects such as `spectra-infra` and the social graph repositories provide the foundation.  Together they form the environment visualized in the interactive map.
 
+## License
+
+This project is licensed under the [MIT License](LICENSE).
 
 
+## Local dashboard
+
+A small dashboard application in `server/` visualizes the repository structure at runtime. It parses `.gitmodules` and renders an interactive graph using D3. Run the server with:
+
+```bash
+cd server && npm install
+npm start
+```
+
+Then open `http://localhost:3000` to view a live map of all submodules.
