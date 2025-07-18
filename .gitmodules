@@ -1,24 +1,24 @@
 [submodule "exosystem/exosys-folg"]
 	path = exosystem/exosys-folg
-	url = git@github-phi:artphytau/exosys-folg.git
+	url = https://github.com/artphytau/exosys-folg.git
 [submodule "afrhone/template"]
 	path = afrhone/template
-	url = git@github.com:spectra-gallery/aligonde-ideo.git
+	url = https://github.com/spectra-gallery/aligonde-ideo.git
 [submodule "spectra/infra"]
 	path = spectra/infra
-	url = git@github.com:spectra-gallery/spectra-infra.git
+	url = https://github.com/spectra-gallery/spectra-infra.git
 [submodule "spectra/ideotek"]
 	path = spectra/ideotek
-	url = git@github.com:spectra-gallery/spectra-contract.git
+	url = https://github.com/spectra-gallery/spectra-contract.git
 [submodule "spectra/graph"]
 	path = spectra/graph
-	url = git@github.com:spectra-gallery/spectra-social.git
+	url = https://github.com/spectra-gallery/spectra-social.git
 [submodule "spectra/graph-api"]
 	path = spectra/graph-api
-	url = git@github.com:spectra-gallery/spectra-social-api.git
+	url = https://github.com/spectra-gallery/spectra-social-api.git
 [submodule "spectra/afrhone"]
 	path = spectra/afrhone
-	url = git@github.com:spectra-gallery/spectra-afrhone.git
+	url = https://github.com/spectra-gallery/spectra-afrhone.git
 [submodule "arquolab/delta"]
 	path = arquolab/delta
-	url = git@github.com:spectra-gallery/arquolab-sandbox-models.git
+	url = https://github.com/spectra-gallery/arquolab-sandbox-models.git
