@@ -67,6 +67,9 @@ function render(nodes, links) {
       .attr('text-anchor', 'middle')
       .text(d => d.id);
 
+  // Allow repositioning of nodes
+  node.call(drag(simulation));
+
   simulation.on('tick', () => {
     link
         .attr('x1', d => d.source.x)
