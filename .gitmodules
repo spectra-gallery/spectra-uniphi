@@ -22,3 +22,27 @@
 [submodule "arquolab/delta"]
 	path = arquolab/delta
 	url = git@github.com:spectra-gallery/arquolab-sandbox-models.git
+[submodule "ideo/aligonde"]
+	path = ideo/aligonde
+	url = git@github.com:spectra-gallery/aligonde-ideo.git
+[submodule "ideo/gallery"]
+	path = ideo/gallery
+	url = git@github.com:spectra-gallery/spectra-afrhone.git
+[submodule "exosystem/datart"]
+	path = exosystem/datart
+	url = git@github-phi:artphytau/discrete-art-api.git
+[submodule "phi/ark/portoflio/app"]
+	path = phi/ark/portoflio/app
+	url = git@github-phi:artphytau/phil-art-ssr.git
+[submodule "phi/ark/portoflio/api"]
+	path = phi/ark/portoflio/api
+	url = git@github-phi:artphytau/phil-art-api.git
+[submodule "platform/function/app"]
+	path = platform/function/app
+	url = git@github-phi:artphytau/the-function.git
+[submodule "platform/function/api"]
+	path = platform/function/api
+	url = git@github-phi:artphytau/function-gallery-api.git
+[submodule "platform/function/storage"]
+	path = platform/function/storage
+	url = git@github-phi:artphytau/function-gallery-storage.git
