@@ -26,12 +26,13 @@ These submodules come from their respective GitHub repositories and are not incl
 
 ## Fetching submodules
 
-After cloning this repository run the following command to download all required code:
-
+After cloning this repository run the setup script to download all required code:
 
 ```bash
-git submodule update --init --recursive
+./setup.sh
 ```
+
+The script simply executes `git submodule update --init --recursive` to populate each directory.
 
 
 ## Project structure
