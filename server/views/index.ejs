@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Spectra Dashboard</title>
+  <link rel="manifest" href="/manifest.json">
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; }
+    #chart { width: 100%; height: 80vh; }
+    footer { text-align: center; padding: 1em; color: #666; }
+    .node circle { fill: #69b3a2; stroke: #333; stroke-width: 1px; }
+    .node text { pointer-events: none; font-size: 12px; }
+    .link { stroke: #999; stroke-opacity: 0.6; }
+  </style>
+</head>
+<body>
+<h2>Spectra-Uniphi Repository Map</h2>
+<div id="chart"></div>
+<footer>Javascript tastes sweet. Uniphilab</footer>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+  const data = <%- data %>;
+  render(data.nodes, data.links);
+
+  async function updateStatus() {
+    const res = await fetch('/api/status');
+    const json = await res.json();
+    console.log('Guardian status:', json);
+  }
+  updateStatus();
+
+  function render(nodes, links) {
+    const width = document.getElementById('chart').clientWidth;
+    const height = document.getElementById('chart').clientHeight;
+    const svg = d3.select('#chart').append('svg')
+        .attr('width', width)
+        .attr('height', height);
+
+    const simulation = d3.forceSimulation(nodes)
+        .force('link', d3.forceLink(links).id(d => d.id).distance(150))
+        .force('charge', d3.forceManyBody().strength(-400))
+        .force('center', d3.forceCenter(width / 2, height / 2));
+
+    const link = svg.append('g')
+        .selectAll('line')
+        .data(links)
+        .enter().append('line')
+        .attr('class', 'link');
+
+    const node = svg.append('g')
+        .selectAll('g')
+        .data(nodes)
+        .enter().append('g')
+        .attr('class', 'node');
+
+    node.append('circle').attr('r', 20);
+    node.append('title').text(d => d.url ? `${d.id}\n${d.url}` : d.id);
+    node.append('text')
+        .attr('dy', 4)
+        .attr('text-anchor', 'middle')
+        .text(d => d.id);
+
+    simulation.on('tick', () => {
+      link
+          .attr('x1', d => d.source.x)
+          .attr('y1', d => d.source.y)
+          .attr('x2', d => d.target.x)
+          .attr('y2', d => d.target.y);
+      node.attr('transform', d => `translate(${d.x},${d.y})`);
+    });
+  }
+</script>
+<script>
+if('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js');
+}
+</script>
+</body>
+</html>

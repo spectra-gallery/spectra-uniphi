@@ -1,0 +1,9 @@
+{
+  "name": "Spectra Dashboard",
+  "short_name": "Spectra",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "description": "Interactive dashboard for spectra-uniphi",
+  "icons": []
+}

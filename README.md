@@ -64,3 +64,14 @@ The Uniphi Lab stack combines several services.  A `spectra-playground-server` p
 
 
 
+
+## Local dashboard
+
+A small dashboard application in `server/` visualizes the repository structure at runtime. It parses `.gitmodules` and renders an interactive graph using D3. Run the server with:
+
+```bash
+cd server && npm install
+npm start
+```
+
+Then open `http://localhost:3000` to view a live map of all submodules.
