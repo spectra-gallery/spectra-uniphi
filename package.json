@@ -1,0 +1,12 @@
+{
+  "name": "spectra-uniphi",
+  "version": "1.0.0",
+  "description": "Utility server for serving documentation",
+  "main": "serve.js",
+  "scripts": {
+    "start": "node serve.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

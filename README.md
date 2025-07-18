@@ -6,6 +6,16 @@ Spectra Uniphi acts as a meta repository tying together multiple submodules. The
 
 ## Documentation
 - [Interactive Map](docs/interactive-map.html)
+### Serve docs locally
+
+To preview the docs locally run:
+
+```bash
+npm install
+npm start
+```
+
+Then open [http://localhost:3000](http://localhost:3000) in your browser.
 
 This repository acts as a meta project for the **Uniphi Lab** ecosystem.  Each directory here is an empty folder that links to an external repository.  Running the submodule command will populate them with code.  For a high level view of how everything fits together see the [interactive repository map](docs/interactive-map.html).
 
