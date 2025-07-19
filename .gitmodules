@@ -46,3 +46,6 @@
 [submodule "platform/function/storage"]
 	path = platform/function/storage
 	url = git@github-phi:artphytau/function-gallery-storage.git
+[submodule "exosystem/octopuce"]
+	path = exosystem/octopuce
+	url = git@github-phi:artphytau/exosystem-ark.git
