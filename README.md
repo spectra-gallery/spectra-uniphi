@@ -54,11 +54,7 @@ The broader architecture centers around two services:
 - **spectra-playground-server** – backend service used for experimentation and APIs.
 - **spectra-frontend** – web front end communicating with the playground server.
 
-Other submodules provide library code and infrastructure used by these two applications. Javascript is the primary language for the frontend and some server tooling.
-
-This will pull down each external project into its directory so that the entire tree builds correctly.
-
-## Intended architecture
+Other submodules provide library code and infrastructure used by these two applications. Javascript is the primary language for the frontend and some server tooling. This will pull down each external project into its directory so that the entire tree builds correctly.
 
 The Uniphi Lab stack combines several services.  A `spectra-playground-server` provides backend capabilities while a `spectra-frontend` offers a web interface.  Supporting projects such as `spectra-infra` and the social graph repositories provide the foundation.  Together they form the environment visualized in the interactive map.
 
