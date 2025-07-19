@@ -1,6 +1,6 @@
 [submodule "exosystem/exosys-folg"]
 	path = exosystem/exosys-folg
-	url = git@github-phi:artphytau/exosys-folg.git
+	url = git@github.com:artphytau/exosys-folg.git
 [submodule "afrhone/template"]
 	path = afrhone/template
 	url = git@github.com:spectra-gallery/aligonde-ideo.git
