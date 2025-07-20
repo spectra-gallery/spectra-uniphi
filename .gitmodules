@@ -30,22 +30,22 @@
 	url = git@github.com:spectra-gallery/spectra-afrhone.git
 [submodule "exosystem/datart"]
 	path = exosystem/datart
-	url = git@github-phi:artphytau/discrete-art-api.git
+	url = git@github.com:artphytau/discrete-art-api.git
 [submodule "phi/ark/portoflio/app"]
 	path = phi/ark/portoflio/app
-	url = git@github-phi:artphytau/phil-art-ssr.git
+	url = git@github.com:artphytau/phil-art-ssr.git
 [submodule "phi/ark/portoflio/api"]
 	path = phi/ark/portoflio/api
-	url = git@github-phi:artphytau/phil-art-api.git
+	url = git@github.com:artphytau/phil-art-api.git
 [submodule "platform/function/app"]
 	path = platform/function/app
-	url = git@github-phi:artphytau/the-function.git
+	url = git@github.com:artphytau/the-function.git
 [submodule "platform/function/api"]
 	path = platform/function/api
-	url = git@github-phi:artphytau/function-gallery-api.git
+	url = git@github.com:artphytau/function-gallery-api.git
 [submodule "platform/function/storage"]
 	path = platform/function/storage
-	url = git@github-phi:artphytau/function-gallery-storage.git
+	url = git@github.com:artphytau/function-gallery-storage.git
 [submodule "exosystem/octopuce"]
 	path = exosystem/octopuce
-	url = git@github-phi:artphytau/exosystem-ark.git
+	url = git@github.com:artphytau/exosystem-ark.git
